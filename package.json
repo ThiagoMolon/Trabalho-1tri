@@ -1,0 +1,25 @@
+{
+  "name": "trabalho-1tri",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cd create && npm run dev",
+    "build": "cd create && npm run build",
+    "lint": "cd create && npm run lint",
+    "preview": "cd create && npm run preview",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThiagoMolon/Trabalho-1tri.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ThiagoMolon/Trabalho-1tri/issues"
+  },
+  "homepage": "https://github.com/ThiagoMolon/Trabalho-1tri#readme"
+}
