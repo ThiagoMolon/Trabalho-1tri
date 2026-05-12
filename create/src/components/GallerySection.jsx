@@ -1,30 +1,34 @@
 import { useState, useRef } from 'react'
 import useScrollReveal from "../components/hooks/useScrollReveal"
+import Engrenagem from "../assets/cogwheel.PNG";
+import EngrenagemGrande from "../assets/large-cogwheel.PNG";
+import AndesiteAlloy from "../assets/Andesite_Alloy.webp";
+import Shaft from "../assets/Shaft.webp";
 
 const galleryImages = [
   {
     id: 1,
-    thumb: '🎨',
-    title: 'Pinhão',
+    thumb: Engrenagem,
+    title: 'engrenagem',
     desc: 'A menor engrenagem. Ideal para multiplicar velocidade em sistemas de transmissão.'
   },
-  {
-    id: 2,
-    thumb: '⚙️',
-    title: 'Engrenagem Grande',
-    desc: 'Multiplica torque. Mais lenta, mas com força impressionante para sistemas pesados.'
-  },
+   {
+     id: 2,
+     thumb: EngrenagemGrande,
+     title: 'Engrenagem Grande',
+     desc: 'Multiplica torque. Mais lenta, mas com força impressionante para sistemas pesados.'
+   },
   {
     id: 3,
-    thumb: '🔧',
-    title: 'Correia de Transmissão',
-    desc: 'Conecta eixos distantes. Eficiente e fácil de implementar em estruturas complexas.'
+    thumb: AndesiteAlloy,
+    title: 'Liga Andesito',
+    desc: 'Liga fundamental para eixos e engrenagens.'
   },
   {
     id: 4,
-    thumb: '⛓️',
-    title: 'Corrente de Gelo',
-    desc: 'Durável e resistente. Perfeita para ambientes frios ou sistemas que exigem estabilidade extrema.'
+    thumb: Shaft,
+    title: 'Eixo de Ferro',
+    desc: 'Componente essencial para a transmissão de movimento em máquinas.'
   }
 ]
 
@@ -48,9 +52,13 @@ function GallerySection() {
           {/* Imagem Principal */}
           <div className="gallery-main">
             <div className="gallery-image-container">
-              <div className="gallery-main-display">
+            <div className="gallery-main-display">
+              {typeof selected.thumb === 'string' && selected.thumb.length < 5 ? (
                 <span style={{ fontSize: '5rem' }}>{selected.thumb}</span>
-              </div>
+              ) : (
+                <img src={selected.thumb} alt={selected.title} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+              )}
+            </div>
               <div className="gallery-main-info">
                 <h3>{selected.title}</h3>
                 <p>{selected.desc}</p>
@@ -67,7 +75,11 @@ function GallerySection() {
                 onClick={() => setSelectedIndex(idx)}
                 title={img.title}
               >
-                <span>{img.thumb}</span>
+                {typeof img.thumb === 'string' && img.thumb.length < 5 ? (
+                  <span>{img.thumb}</span>
+                ) : (
+                  <img src={img.thumb} alt={img.title} style={{ width: '24px', height: '24px', objectFit: 'cover' }} />
+                )}
                 <div className="thumb-label">{img.title}</div>
               </button>
             ))}
